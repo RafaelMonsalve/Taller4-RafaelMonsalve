@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-header>
+  <mat-card-title>Registro de usuarios</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="registroForm" class="Registro-form" (submit)="OnSubmit()">
+      <mat-form-field class="Registro-form-field">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="Nombre" placeholder="Nombre">
+        <!--Validación de errores campo Nombre-->
+        <mat-error *ngIf="registroForm.controls['Nombre']?.errors?.['required']">Este campo es obligatorio</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="Registro-form-field">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="Apeliido" placeholder="Apellido">
+        <!--Validación de errores campo usuario-->
+        <mat-error *ngIf="registroForm.controls['Apeliido']?.errors?.['required']">Este campo es obligatorio</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="Registro-form-field">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" formControlName="Correo" placeholder="Correo">
+        <!--Validación de errores campo usuario-->
+        <mat-error *ngIf="registroForm.controls['Correo']?.errors?.['required']">Este campo es obligatorio</mat-error>
+        <mat-error *ngIf="registroForm.controls['Correo']?.errors?.['email']">Debe ser un email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="Registro-form-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="Password" placeholder="Contraseña">
+         <!--Validación de errores campo usuario-->
+         <mat-error *ngIf="registroForm.controls['Password']?.errors?.['required']">Este campo es obligatorio</mat-error>
+        <mat-error *ngIf="registroForm.controls['Password']?.errors?.['minlength']">Debe contener minimo 6 caracteres</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Registrarse</button>
+
+      <button routerLink="/login" mat-raised-button color="warn">Volver</button>
+    </form>
+  </mat-card-content>
+</mat-card>

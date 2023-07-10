@@ -1,0 +1,22 @@
+mat-card{
+  width: 400px;
+  margin: 0 auto;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+}
+.login-form-field{
+  margin-bottom: 10px;
+}
+.login-links{
+  display: flex;
+  justify-content: space-between;
+  margin-top:16px
+}
+.login-link{
+  text-decoration: none;
+  color:rgb(98, 120, 214);
+  font-weight: bold;
+  text-align: center;
+}

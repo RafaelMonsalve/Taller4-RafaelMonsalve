@@ -1,0 +1,15 @@
+.div_botones{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px;
+}
+.div_tabla{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px;
+  border: 1px solid black;
+}

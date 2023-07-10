@@ -1,0 +1,82 @@
+<h2 mat-dialog-title>Registro de Estudiantes</h2>
+<mat-dialog-content>
+  <form [formGroup]="registroForm" (submit)="onSubmit()">
+
+    <mat-form-field >
+      <mat-label>Tipo Identificación</mat-label>
+        <mat-select formControlName="tipoIdentificacion">
+          <mat-option *ngFor="let tipo of tiposIdentificacion" [value]="tipo.value">
+            {{tipo.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="registroForm.controls['tipoIdentificacion'].errors?.['required']">El campo es Obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Identificacion</mat-label>
+      <input matInput formControlName="numeroIdentificacion" placeholder="Numero Identificación">
+      <mat-error *ngIf="registroForm.controls['numeroIdentificacion'].errors?.['required']">El campo es Obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.controls['numeroIdentificacion'].errors?.['minlength']">El dato debe ser mayor de 7 digitos</mat-error>
+      <mat-error *ngIf="registroForm.controls['numeroIdentificacion'].errors?.['maxlength']">El dato debe ser menor de 10 digitos</mat-error>
+      <mat-error *ngIf="registroForm.controls['numeroIdentificacion'].errors?.['pattern']">Solo numeros</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombres</mat-label>
+      <input matInput formControlName="nombres" placeholder="Nombres">
+      <mat-error *ngIf="registroForm.controls['nombres'].errors?.['required']">El campo es Obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombres'].errors?.['minlength']">El dato debe ser mayor de 3 letras</mat-error>
+      <mat-error *ngIf="registroForm.controls['nombres'].errors?.['pattern']">Solo letras</mat-error>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Apellidos</mat-label>
+      <input matInput formControlName="apellidos" placeholder="Apellidos">
+      <mat-error *ngIf="registroForm.controls['apellidos'].errors?.['required']">El campo es Obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.controls['apellidos'].errors?.['minlength']">El dato debe ser mayor de 3 letras</mat-error>
+      <mat-error *ngIf="registroForm.controls['apellidos'].errors?.['pattern']">Solo letras</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="celular" placeholder="Celular">
+      <mat-error *ngIf="registroForm.controls['celular'].errors?.['required']">El campo es Obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.controls['celular'].errors?.['minlength']">El dato debe ser mayor de 7 digitos</mat-error>
+      <mat-error *ngIf="registroForm.controls['celular'].errors?.['maxlength']">El dato debe ser menor de 10 digitos</mat-error>
+      <mat-error *ngIf="registroForm.controls['celular'].errors?.['pattern']">Solo numeros</mat-error>
+    </mat-form-field >
+
+    <mat-form-field>
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo" placeholder="Correo">
+      <mat-error *ngIf="registroForm.controls['correo'].errors?.['required']">El campo es Obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.controls['correo'].errors?.['email']">El dato no es un correo valido</mat-error>
+      <mat-error *ngIf="registroForm.controls['correo'].errors?.['pattern']">Correo invalido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Linkedin</mat-label>
+      <input matInput formControlName="linkedin" placeholder="linkedin">
+      <mat-error *ngIf="registroForm.controls['linkedin'].errors?.['required']">El campo es Obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.controls['linkedin'].errors?.['minlength']">El dato debe contener más de 7 letras</mat-error>
+      <mat-error *ngIf="registroForm.controls['linkedin'].errors?.['maxlength']">El dato debe contener menos de 100 letras</mat-error>
+      <mat-error *ngIf="registroForm.controls['linkedin'].errors?.['pattern']">Url Invalida</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Github</mat-label>
+      <input matInput formControlName="github" placeholder="GitHub">
+      <mat-error *ngIf="registroForm.controls['github'].errors?.['required']">El campo es Obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.controls['github'].errors?.['minlength']">El dato debe contener más de 10 letras</mat-error>
+      <mat-error *ngIf="registroForm.controls['github'].errors?.['maxlength']">El dato debe contener menos de 100 letras</mat-error>
+      <mat-error *ngIf="registroForm.controls['github'].errors?.['pattern']">Url Invalida</mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close mat-flat-button color="warn">Close</button>
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+
+</form>
+</mat-dialog-content>
+
